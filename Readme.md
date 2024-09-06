@@ -177,3 +177,10 @@ Finalmente no final do documento adiciona-se a bibliografia completa.
 ```latex
 \printbibliography[heading=bibintoc]
 ```
+
+## Licença
+
+Este trabalho encontra-se ao abrigo da licença MIT.
+
+Imagens do DETI incluídas no repositório são propriedade da Universidade de
+Aveiro.
