@@ -1,6 +1,6 @@
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[code,math,diagrams]{relatorio-deti}
+\documentclass[code,math]{relatorio-deti}
 
 \title{Projeto Final: Sementes inteligentes}
 \cadeira{Agricultura de Computadores}
@@ -19,5 +19,39 @@
 \chapter{Introdução}
 
 \lipsum[1-4]
+
+\chapter{Código}
+
+Listagem simples
+
+\begin{listing}[H]
+	\begin{minted}{c}
+		int main(void) {
+			return 0;
+		}
+	\end{minted}
+\end{listing}
+
+Listagem sem highlighting.
+
+\begin{listing}[H]
+	\begin{minted}{text}
+		test/a
+		d
+		test/a
+		test/b
+	\end{minted}
+\end{listing}
+
+Listagem completa centrada, com título e label.
+
+\begin{listing}[H]
+	\centering
+	\begin{minted}{bash}
+        find "$@" -type d -print0
+    \end{minted}
+	\caption{Segunda iteração do comando para obter os subdiretórios}
+	\label{code:implementation_second_subdir_find}
+\end{listing}
 
 \end{document}

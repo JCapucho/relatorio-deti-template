@@ -90,3 +90,90 @@ Os membros são configurados por chamadas consecutivas do comando `\membro`
 \membro{Membro 2}{999999}
 ```
 
+## Cheatsheet
+
+Em baixo encontram-se exemplos de como adicionar vários tipos de conteúdo
+comuns.
+
+### Código
+
+Listagem de código requerem a opção `code` na classe.
+
+Código é adicionado através do ambiente `minted` este requer que o programa
+`pygmentize` esteja instalado e fornece código com highlighting.
+
+```latex
+\begin{minted}{c}
+    int main(void) {
+        return 0;
+    }
+\end{minted}
+```
+
+O `minted` é configurado de modo que o espaço branco comum à esquerda do
+código é removido (opção `autogobble`), por isso o código pode ser indentado
+no latex sem causar problemas no resultado.
+
+Caso se pretenda adicionar texto como código, mas que não têm uma linguagem
+(por exemplo, a listagem de um diretório) pode se utilizar a linguagem especial
+`text`.
+
+```latex
+\begin{minted}{text}
+    test/a
+    d
+    test/a
+    test/b
+\end{minted}
+```
+
+Adicionalmente pode ser necessário adicionar um título e `\label` a listagem
+de código, isto pode ser implementado utilizando o ambiente `listing`
+do seguinte modo:
+
+```latex
+\begin{listing}[H]
+    \centering
+    \begin{minted}{bash}
+        find "$@" -type d -print0
+    \end{minted}
+    \caption{Segunda iteração do comando para obter os subdiretórios}
+    \label{code:implementation_second_subdir_find}
+\end{listing}
+```
+
+### Bibliografia
+
+Bibliografia requer a opção `bibliography` na classe.
+
+Primeiro é preciso declarar os ficheiros de bibliografia no preambulo, isto
+é feito com o comando `\addbibresource`.
+
+```latex
+\addbibresource{bibliography.bib}
+```
+
+Os ficheiros seguem o formato BibTex.
+
+```bibtex
+@article{posix,
+  author = {},
+  journal = {IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008)},
+  title = {{IEEE Standard for Information Technology--Portable Operating System
+           Interface (POSIX(TM)) Base Specifications, Issue 7}},
+  year = {2018},
+  doi = {10.1109/IEEESTD.2018.8277153},
+}
+```
+
+A seguir podem se adicionar citações ao documento com o comando `\cite`.
+
+```latex
+\cite{posix}
+```
+
+Finalmente no final do documento adiciona-se a bibliografia completa.
+
+```latex
+\printbibliography[heading=bibintoc]
+```
