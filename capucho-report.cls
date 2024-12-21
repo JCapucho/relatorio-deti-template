@@ -57,7 +57,10 @@
 
 \ifdefined\needsCode
 	% Code highlighting in code blocks
-	\RequirePackage[outputdir=build]{minted}
+	\RequirePackage{minted}
+	% Newer versions don't need (or accept) the output dir option, so only add it
+	% if the versions is older than V3.
+	\IfPackageAtLeastTF{parskip}{2024-09-22}{}{\PassOptionsToPackage{outputdir=build}{minted}}
 	\setminted{autogobble}
 	% Prefix for code listings (default: Listing)
 	\renewcommand{\listingscaption}{Código}
