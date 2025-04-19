@@ -10,7 +10,7 @@
 
 % Define variables and commands to use in the title page
 \newcommand*{\cadeira}[1]{\gdef\@cadeira{#1}}
-\newcommand*{\relatorioAno}[1]{\gdef\@relatorioAno{#1}}
+\newcommand*{\relatorioData}[1]{\gdef\@relatorioData{#1}}
 
 % Required for lists
 \RequirePackage{etoolbox}
@@ -21,7 +21,7 @@
 }
 
 \newcommand*{\@cadeira}{\texttt{\string\cadeira} currently not set. Please fix this.}
-\newcommand*{\@relatorioAno}{\texttt{\string\relatorioAno} currently not set. Please fix this.}
+\newcommand*{\@relatorioData}{\texttt{\string\relatorioData} currently not set. Please fix this.}
 
 %%% START CUSTOM HEADER
 
@@ -64,7 +64,7 @@
 				\forlistloop{\showmember}{\@membros}
 			\end{tabular}
 			\vfill
-			{\Large \@relatorioAno}
+			{\Large \@relatorioData}
 		\end{center}
 
 	\end{titlepage}

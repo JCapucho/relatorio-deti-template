@@ -62,9 +62,9 @@ O nome da UC é configurado pelo comando `\cadeira`.
 \cadeira{Nome da UC}
 ```
 
-### Ano letivo
+### Data
 
-O ano letivo é configurado pelo comando `\relatorioAno`.
+A data do documento é configurado pelo comando `\relatorioData`.
 
 ```latex
 \relatorioAno{2069/2070}

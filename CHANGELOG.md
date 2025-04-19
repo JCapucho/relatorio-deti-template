@@ -4,3 +4,5 @@
 - A opção `language` foi adicionada a classe `capucho-report` permitindo
   alterar a linguagem do documento de português para outra suportada pelo
   `babel`.
+- O comando `\relatorioAno` foi renomeado para `\relatorioData` para mostrar
+  que é mais genêrico do que apenas um ano.
