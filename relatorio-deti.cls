@@ -5,8 +5,24 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{capucho-report}}
 \ProcessOptions
 
+\newif\if@relatoriodeti@draft
+\@relatoriodeti@drafttrue
+
+\DeclareKeys
+{
+	final.ifnot = @relatoriodeti@draft,
+}
+% Pass any unknow class options to the capucho-report class
+\DeclareUnknownKeyHandler{\PassOptionsToClass{\CurrentOption}{capucho-report}}
+\ProcessKeyOptions
+
 % Load capucho-report class
-\LoadClass[11pt,a4paper]{capucho-report}
+\LoadClass{capucho-report}
+
+\if@relatoriodeti@draft
+	\RequirePackage[firstpageonly]{draftwatermark}
+\fi
+
 
 % Define variables and commands to use in the title page
 \newcommand*{\cadeira}[1]{\gdef\@cadeira{#1}}

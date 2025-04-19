@@ -6,3 +6,5 @@
   `babel`.
 - O comando `\relatorioAno` foi renomeado para `\relatorioData` para mostrar
   que é mais genêrico do que apenas um ano.
+- A opção `final` foi adicionada para marcar um documento como completado, caso
+  contrário o texto *Draft* será adicionado a primeira página do documento.

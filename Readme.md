@@ -41,6 +41,9 @@ necessários, as opções disponíveis são as seguintes:
 A opção `language=<language>` permite alterar alterar a linguagem do documento
 de português (a linguagem por defeito) para outra suportada pelo `babel`.
 
+A opção `final` marca um documento como completado/pronto para entrega
+removendo o texto *Draft* da primeira página do documento.
+
 ## Configuração da capa
 
 A capa do relatório apresenta o título, o ano letivo, a UC e os membros do
