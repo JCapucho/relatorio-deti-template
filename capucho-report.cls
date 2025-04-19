@@ -6,12 +6,17 @@
 \newif\if@capuchoreport@diagrams
 \newif\if@capuchoreport@bibliography
 
+% Default to use portuguese as a language
+\def\@capuchoreport@language{portuguese}
+
 \DeclareKeys
 {
 	code.if = @capuchoreport@code,
 	math.if = @capuchoreport@math,
 	diagrams.if = @capuchoreport@diagrams,
 	bibliography.if = @capuchoreport@bibliography,
+	language.store = \@capuchoreport@language,
+	language.usage = general
 }
 % Pass any unknow class options to the capucho-report class
 \DeclareUnknownKeyHandler{\PassOptionsToClass{\CurrentOption}{report}}
@@ -32,8 +37,8 @@
 
 \RequirePackage[headheight=20mm,headsep=5mm]{geometry}
 
+\RequirePackage[\@capuchoreport@language]{babel}
 % Add support for portuguese writing rules
-\RequirePackage[portuguese]{babel}
 \babelprovide[transforms = hyphen.repeat]{portuguese}
 
 % Allows setting custom padding
@@ -114,7 +119,7 @@
 
 \if@capuchoreport@bibliography
 	% Don't sort the bibliography, use the order of the citations usage
-	\RequirePackage[sorting=none, dateabbrev=false, language=portuguese]{biblatex}
+	\RequirePackage[sorting=none, dateabbrev=false, language=\@capuchoreport@language]{biblatex}
 \fi
 
 \newcommand{\VerbSection}[1]{%

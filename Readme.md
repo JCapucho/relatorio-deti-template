@@ -38,6 +38,9 @@ necessários, as opções disponíveis são as seguintes:
 - `diagrams`, para criar diagramas com TikZ 
 - `bibliography`, para adicionar bibliografia e citações
 
+A opção `language=<language>` permite alterar alterar a linguagem do documento
+de português (a linguagem por defeito) para outra suportada pelo `babel`.
+
 ## Configuração da capa
 
 A capa do relatório apresenta o título, o ano letivo, a UC e os membros do
