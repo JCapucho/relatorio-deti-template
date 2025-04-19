@@ -44,6 +44,9 @@ de português (a linguagem por defeito) para outra suportada pelo `babel`.
 A opção `final` marca um documento como completado/pronto para entrega
 removendo o texto *Draft* da primeira página do documento.
 
+A opção `noheader` permite remover o cabeçalho remover o cabeçalho presente nas
+páginas normalmente.
+
 ## Configuração da capa
 
 A capa do relatório apresenta o título, o ano letivo, a UC e os membros do

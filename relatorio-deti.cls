@@ -1,16 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{relatorio-deti}[2024/09/06 v0.2 class for relatorio deti]
-
-% Passes and class options to the capucho-report class
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{capucho-report}}
-\ProcessOptions
+\ProvidesClass{relatorio-deti}[2025/04/19 v0.3 class for relatorio deti]
 
 \newif\if@relatoriodeti@draft
 \@relatoriodeti@drafttrue
+\newif\if@relatoriodeti@header
+% By default there is a header
+\@relatoriodeti@headertrue
 
 \DeclareKeys
 {
 	final.ifnot = @relatoriodeti@draft,
+	noheader.ifnot = @relatoriodeti@header
 }
 % Pass any unknow class options to the capucho-report class
 \DeclareUnknownKeyHandler{\PassOptionsToClass{\CurrentOption}{capucho-report}}
@@ -41,16 +41,20 @@
 
 %%% START CUSTOM HEADER
 
-\RequirePackage{fancyhdr}
+\if@relatoriodeti@header
+	\RequirePackage{fancyhdr}
 
-\pagestyle{fancy}
-\fancyhead[L]{\includegraphics[width=0.25\textwidth]{figs/deti.png}}
-\fancyhead[C]{%
-	\centering%
-	\parbox[b]{0.40\textwidth}{\centering\leftmark}%
-}
-\fancyhead[R]{\parbox[b]{0.25\textwidth}{\RaggedRight{\makeatletter\@cadeira\makeatother}}}
-\fancypagestyle{plain}{}
+	\pagestyle{fancy}
+	\fancyheadwidth[L]{0.25\textwidth}
+	\fancyhead[L]{\includegraphics[width=0.25\textwidth]{figs/deti.png}}
+
+	\fancyheadwidth[C]{0.40\textwidth}
+	\fancyhead[C]{\centering\leftmark}
+
+	\fancyheadwidth[R]{0.25\headwidth}
+	\fancyhead[R]{\RaggedLeft{\makeatletter\@cadeira\makeatother}}
+	\fancypagestyle{plain}{}
+\fi
 
 %%%  END CUSTOM HEADER
 
