@@ -5,7 +5,6 @@
 \DeclareOption{code}{\def\needsCode{1}}
 \DeclareOption{math}{\def\needsMath{1}}
 \DeclareOption{diagrams}{\def\needsDiagrams{1}}
-\DeclareOption{small-chapter}{\def\smallChapter{1}}
 \DeclareOption{bibliography}{\def\needsBibliography{1}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions
@@ -92,10 +91,6 @@
 	\RequirePackage[dvipsnames]{xcolor}
 	\RequirePackage{tikz}
 	\usetikzlibrary{shapes, arrows}
-\fi
-
-\ifdefined\smallChapter
-	\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
 \fi
 
 % Change the chapter title to the compact format

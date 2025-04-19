@@ -38,14 +38,6 @@ necessários, as opções disponíveis são as seguintes:
 - `diagrams`, para criar diagramas com TikZ 
 - `bibliography`, para adicionar bibliografia e citações
 
-Além destas opções existe ainda a opção `small-chapter`, esta opção é
-fortemente desaconselhada, pois é extremamente instável e parte facilmente.
-Esta opção modifica o comando `\chapter` de modo que este não gere um
-`\clearpage` não trocando assim de página, isto pode ser útil quando existe
-um limite muito estrito no número de páginas e alguns capítulos desperdiçam
-muita espaço em branco.
-Mais uma vez esta opção não é aconselhada e não funciona com `\include`.
-
 ## Configuração da capa
 
 A capa do relatório apresenta o título, o ano letivo, a UC e os membros do
