@@ -1,13 +1,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{capucho-report}[2024/09/06 v0.1 class for reports by Capucho]
 
-% Passes and class options to the underlying report class
-\DeclareOption{code}{\def\needsCode{1}}
-\DeclareOption{math}{\def\needsMath{1}}
-\DeclareOption{diagrams}{\def\needsDiagrams{1}}
-\DeclareOption{bibliography}{\def\needsBibliography{1}}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
-\ProcessOptions
+\newif\if@capuchoreport@code
+\newif\if@capuchoreport@math
+\newif\if@capuchoreport@diagrams
+\newif\if@capuchoreport@bibliography
+
+\DeclareKeys
+{
+	code.if = @capuchoreport@code,
+	math.if = @capuchoreport@math,
+	diagrams.if = @capuchoreport@diagrams,
+	bibliography.if = @capuchoreport@bibliography,
+}
+% Pass any unknow class options to the capucho-report class
+\DeclareUnknownKeyHandler{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessKeyOptions
 
 % Load report class
 \LoadClass[11pt,a4paper]{report}
@@ -22,7 +30,6 @@
 	\RequirePackage[T1]{fontenc}
 \fi
 
-% Add `showframe` to display geometry guides
 \RequirePackage[headheight=20mm,headsep=5mm]{geometry}
 
 % Add support for portuguese writing rules
@@ -54,7 +61,7 @@
 % Allows control over text alignment
 \RequirePackage{ragged2e}
 
-\ifdefined\needsCode
+\if@capuchoreport@code
 	% Code highlighting in code blocks
 	\RequirePackage{minted}
 	% Newer versions don't need (or accept) the output dir option, so only add it
@@ -73,7 +80,7 @@
 	\newmintinline{bash}{}
 \fi
 
-\ifdefined\needsMath
+\if@capuchoreport@math
 	% Math environments
 	\RequirePackage{amsmath}
 \fi
@@ -86,7 +93,7 @@
 % Context sensitive (and language aware) quotation
 \RequirePackage[portuguese=portuguese]{csquotes}
 
-\ifdefined\needsDiagrams
+\if@capuchoreport@diagrams
 	% Needed for diagrams
 	\RequirePackage[dvipsnames]{xcolor}
 	\RequirePackage{tikz}
@@ -105,7 +112,7 @@
 % Remove the header from the TOC page
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
 
-\ifdefined\needsBibliography
+\if@capuchoreport@bibliography
 	% Don't sort the bibliography, use the order of the citations usage
 	\RequirePackage[sorting=none, dateabbrev=false, language=portuguese]{biblatex}
 \fi
